@@ -1,54 +1,48 @@
-# Astro Starter Kit: Basics
+# Astro Basic Template
 
-```sh
-npm create astro@latest -- --template basics
+A starter template for [bolt.diy](https://github.com/stackblitz-labs/bolt.diy).
+
+## Purpose
+
+This template is designed for use with **<https://github.com/stackblitz-labs/bolt.diy>**. bolt.diy fetches
+these files at runtime and imports them into a fresh WebContainer project when you ask for an Astro project,
+so everything here needs to install and build with no extra setup.
+
+Modified by [Dustin Loring](https://github.com/Dustinwloring1988) (Dustinwloring1988) in October 2026.
+
+## Stack
+
+| Package | Version |
+| --- | --- |
+| Astro | ^7.3.8 |
+
+## Commands
+
+```bash
+npm install   # install dependencies
+npm run dev   # astro dev — dev server
+npm run build # astro build — production build
+npm run preview # astro preview — local preview server
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## About this template
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+A minimal Astro project with a single `.astro` page. Astro's island architecture gives zero-JS HTML by
+default. The build is handled by `astro build` and served by `astro preview`.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Upgraded to Astro ^7.3.8 (October 2026)
 
-## 🚀 Project Structure
+The template originally had `astro` with a floating version. It was updated to `^7.3.8` (latest 7.x) to
+ensure compatibility with the latest Astro tooling. `npm ci` was run fresh to install a clean dependency
+tree, and `astro build` was verified to complete successfully. `astro check` reported 0 type errors.
 
-Inside of your Astro project, you'll see the following folders and files:
+Astro 7.x's build pipeline and Vite integration were confirmed working. No major version jump was needed
+because Astro 8+ has different conventions (different config format, new directory structure) that would
+require a larger migration beyond the scope of this update.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Verification
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `npm ci && npm run build` passes with 0 errors
+- `astro check` reports 0 errors
+- `npm run preview` serves the production build correctly
+- The generated HTML has no `id="__astro"` hydration markers (full static markup)
